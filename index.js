@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 const { default: mongoose } = require('mongoose')
 const { builtinModules } = require('module')
 mongoose
-    .connect("mongodb+srv://rkdehdduq12:akwldrkz2@database.pschmcu.mongodb.net/?retryWrites=true&w=majority&appName=DataBase")
+    .connect("")
     .then(() => console.log("MongoDB Connected..."))
     .catch(err => console.log(err))
 
