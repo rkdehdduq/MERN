@@ -1,10 +1,13 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
 // body-parser 가져오기 
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 // user 모델 가져오기
-const {User} = require("./models/User")
+const {User} = require("./models/User");
+
+// DB 토큰 보안
+const config = require('./config/key');
 
 // bodyParser 옵션주기 
 // application/x-www-form-urlencoded 인코딩 방식이란?
@@ -18,7 +21,7 @@ app.use(bodyParser.json())
 const { default: mongoose } = require('mongoose')
 const { builtinModules } = require('module')
 mongoose
-    .connect("")
+    .connect(config.mongoURI)
     .then(() => console.log("MongoDB Connected..."))
     .catch(err => console.log(err))
 
